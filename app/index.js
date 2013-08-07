@@ -41,7 +41,8 @@ HashiramaGenerator.prototype.askFor = function askFor() {
       },
       {
         name: 'Compass Base',
-        value: 'compassBase'
+        value: 'compassBase',
+        checked: true
       }
     ]
   }];
@@ -66,7 +67,6 @@ HashiramaGenerator.prototype.configs = function configs() {
   this.copy('_package.json', 'package.json');
   this.copy('bowerrc', '.bowerrc');
   this.copy('_bower.json', 'bower.json');
-  this.copy('_config.rb', 'config.rb');
 };
 
 HashiramaGenerator.prototype.projectfiles = function projectfiles() {
