@@ -1,0 +1,9 @@
+@import "base/layout";
+
+body{
+	background: #eee;
+
+	&:after{
+		content: "Ready?";
+	}
+}

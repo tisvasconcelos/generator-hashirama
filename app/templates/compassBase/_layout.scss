@@ -1,0 +1,47 @@
+/* variables */
+$font-base    : 16;
+$font-measure : em;
+$link-color   : #025ec7;
+$text-color   : #484848;
+
+/* imports */
+@import "base/reset";
+@import "base/preset";
+@import "base/fallback";
+
+/* viewport */
+@viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport  { width: device-width; }
+
+/* ==========================================================================
+   Common to all pages
+   ========================================================================== */
+body {
+    font: normal normal 100%/1.5 Arial, sans-serif;
+    background: #eee;
+    -webkit-print-color-adjust:exact;
+}
+ 
+a {
+    color: $link-color;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
+}
+
+strong{
+    font-weight: bold;
+}
+
+header {
+
+}
+
+
+footer {
+    
+}
