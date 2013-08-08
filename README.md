@@ -32,8 +32,8 @@ A generator for Yeoman.
 
 - grunt build
 
-	Run: `grunt build`
-	
+	Run: `grunt build` || `grunt b`
+
 	This yill build all your project (comass and uglifyjs)
 
 ## License
