@@ -14,19 +14,26 @@ A generator for Yeoman.
 ### Grunt commands
 
 - watch event:
+
 	Run: `grunt w`
+
 	This will start the watch event e build the files you are working when you save
 
 - grunt server:
+
 	Run: `grunt server`
+
 	This will run the server um port 9000 (localhost:9000)
 
 	Run: `grunt server:live` || `grunt server:livereload`
+
 	This will run the server um port 9000 and reload on files update
 
 
 - grunt build
+
 	Run: `grunt build`
+	
 	This yill build all your project (comass and uglifyjs)
 
 ## License
