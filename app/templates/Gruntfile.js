@@ -93,6 +93,61 @@ module.exports = function (grunt) {
                 'compass'
             ]
         },
+        <% if (jshint) { %>
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            ignore_warning: {
+                options: {
+                    '-W099': true,
+                    '-W041': true
+                },
+                src: ['assets/src/js/app/**/*.js']
+            }
+        },
+        <% } %><% if (jslint) { %>
+        jslint: { // configure the task
+            files: [ // some example files
+                'assets/src/js/app/**/*.js'
+            ],
+            /*exclude: [
+                'SRC',
+            ],*/
+            directives: { // example directives
+            browser: true,
+            devel: true,
+            passfail: false, 
+            ass: true, 
+            bitwise: true, 
+            closure: true, 
+            continue: true, 
+            debug: true, 
+            eqeq: true, 
+            es5: true, 
+            evil: true, 
+            forin: true, 
+            newcap: true, 
+            nomen: true, 
+            plusplus: true, 
+            regexp: true, 
+            unparam: true, 
+            sloppy: true, 
+            stupid: true, 
+            sub: true, 
+            todo: true, 
+            vars: true, 
+            white: true,
+            predef: [ // array of pre-defined globals
+                '$', 'jQuery', 'Modernizr', 'ActiveXObject'
+            ]
+            },
+            options: {
+                errorsOnly: true, // only display errors
+                failOnError: false, // defaults to true
+                shebang: true // ignore shebang lines
+            }
+        },<% } %>
 
         clean: {
             server: '.tmp'
@@ -106,7 +161,7 @@ module.exports = function (grunt) {
 
     		script: {
     			files: ['assets/src/js/**/*'],
-    			tasks: ['copy:script','uglify:dist']
+    			tasks: [<% if (jshint) { %>'jshint',<% } %><% if (jslint) { %>'jslint',<% } %>'copy:script','uglify:dist']
     		},
 
             livereload: {
@@ -149,11 +204,22 @@ module.exports = function (grunt) {
         }
     });
 
-
     //build
-    grunt.registerTask('build', ['compass','copy:script','uglify']);
-    grunt.registerTask('b', ['compass','copy:script','uglify']);
+    grunt.registerTask('build', [
+        'compass',<% if (jshint) { %>
+        'jshint',<% } %><% if (jslint) { %>
+        'jslint',<% } %>
+        'copy:script',
+        'uglify'
+    ]);
+    grunt.registerTask('b', [
+        'compass',<% if (jshint) { %>
+        'jshint',<% } %><% if (jslint) { %>
+        'jslint',<% } %>
+        'copy:script',
+        'uglify'
+    ]);
 
     //watch
-    grunt.registerTask('w', ['watch:compass','watch:script']);
+    grunt.registerTask('w', ['watch']);
 };

@@ -3,9 +3,7 @@ var util = require('util');
 var path = require('path');
 var sys = require('sys');
 var exec = require('child_process').exec;
-var fs = require('fs');
 var yeoman = require('yeoman-generator');
-
 
 var HashiramaGenerator = module.exports = function HashiramaGenerator(args, options, config) {
   yeoman.generators.Base.apply(this, arguments);
@@ -43,6 +41,14 @@ HashiramaGenerator.prototype.askFor = function askFor() {
         name: 'Compass Base',
         value: 'compassBase',
         checked: true
+      },
+      {
+        name: 'JSLint',
+        value: 'jslint'
+      },
+      {
+        name: 'JSHint',
+        value: 'jshint'
       }
     ]
   }];
@@ -55,6 +61,8 @@ HashiramaGenerator.prototype.askFor = function askFor() {
     this.git = features.indexOf('git') !== -1;
     this.svn = features.indexOf('svn') !== -1;
     this.compassBase = features.indexOf('compassBase') !== -1;
+    this.jslint = features.indexOf('jslint') !== -1;
+    this.jshint = features.indexOf('jshint') !== -1;
 
     cb();
   }.bind(this));
@@ -71,7 +79,9 @@ HashiramaGenerator.prototype.configs = function configs() {
 
 HashiramaGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
+  if (this.jshint) {
+    this.copy('jshintrc', '.jshintrc');
+  }
 };
 
 HashiramaGenerator.prototype.versionControl = function versionControl() {

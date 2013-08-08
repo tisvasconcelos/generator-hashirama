@@ -18,5 +18,11 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "white": true
+    "white": true,
+    "globals": {
+        "jQuery": true,
+        "$": true,
+        "Modernizr": true,
+        "ActiveXObject": true
+    }
 }

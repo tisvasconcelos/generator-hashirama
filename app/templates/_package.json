@@ -5,8 +5,9 @@
 	"devDependencies": {
 		"grunt": "~0.4.1",
 		"matchdep": "~0.1.1",
-		"connect-livereload": "~0.2.0",
-		"grunt-jslint": "~0.2.6",
+		"connect-livereload": "~0.2.0",<% if (jslint) { %>
+		"grunt-jslint": "~0.2.6",<% } %> <% if (jshint) { %>
+		"grunt-contrib-jshint": "~0.6.2",<% } %>
 		"grunt-open": "~0.2.1",
 		"grunt-concurrent": "~0.1.0",
 		"grunt-contrib-clean": "~0.4.0",
