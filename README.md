@@ -34,7 +34,7 @@ A generator for Yeoman.
 
 	Run: `grunt build` || `grunt b`
 
-	This yill build all your project (compass and uglifyjs)
+	This will build all your project (compass and uglifyjs)
 
 ## License
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
