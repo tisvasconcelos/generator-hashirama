@@ -29,6 +29,10 @@ HashiramaGenerator.prototype.askFor = function askFor() {
     message: 'Select your features?',
     choices: [
       {
+        name: 'Bower',
+        value: 'bower'
+      },
+      {
         name: 'SVN',
         value: 'svn'
       },
@@ -63,6 +67,7 @@ HashiramaGenerator.prototype.askFor = function askFor() {
     this.compassBase = features.indexOf('compassBase') !== -1;
     this.jslint = features.indexOf('jslint') !== -1;
     this.jshint = features.indexOf('jshint') !== -1;
+    this.bower = features.indexOf('bower') !== -1;
 
     cb();
   }.bind(this));
@@ -73,8 +78,10 @@ HashiramaGenerator.prototype.configs = function configs() {
   this.template('Gruntfile.js');
 
   this.copy('_package.json', 'package.json');
-  this.copy('bowerrc', '.bowerrc');
-  this.copy('_bower.json', 'bower.json');
+  if (this.bower) {
+    this.copy('bowerrc', '.bowerrc');
+    this.copy('_bower.json', 'bower.json');
+  }
 };
 
 HashiramaGenerator.prototype.projectfiles = function projectfiles() {
@@ -126,5 +133,5 @@ HashiramaGenerator.prototype.boilerplate = function boilerplate() {
     this.copy('main.scss','assets/src/css/main.scss');
   }
 
-  this.copy('index.html','index.html');
+  this.template('index.html');
 };
