@@ -62,12 +62,21 @@ HashiramaGenerator.prototype.askFor = function askFor() {
 
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
-    this.git = features.indexOf('git') !== -1;
-    this.svn = features.indexOf('svn') !== -1;
-    this.compassBase = features.indexOf('compassBase') !== -1;
-    this.jslint = features.indexOf('jslint') !== -1;
-    this.jshint = features.indexOf('jshint') !== -1;
-    this.bower = features.indexOf('bower') !== -1;
+    if(features !== undefined){    
+      this.git = features.indexOf('git') !== -1;
+      this.svn = features.indexOf('svn') !== -1;
+      this.compassBase = features.indexOf('compassBase') !== -1;
+      this.jslint = features.indexOf('jslint') !== -1;
+      this.jshint = features.indexOf('jshint') !== -1;
+      this.bower = features.indexOf('bower') !== -1;
+    }else{
+      this.git = false;
+      this.svn = false;
+      this.compassBase = false;
+      this.jslint = false;
+      this.jshint = true;
+      this.bower = false;
+    }
 
     cb();
   }.bind(this));
