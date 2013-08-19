@@ -74,7 +74,7 @@ HashiramaGenerator.prototype.askFor = function askFor() {
       this.svn = false;
       this.compassBase = false;
       this.jslint = false;
-      this.jshint = true;
+      this.jshint = false;
       this.bower = false;
     }
 

@@ -23,11 +23,13 @@ describe('hashirama generator', function () {
     var expected = [
       // add files you expect to exist here.
       '.jshintrc',
-      '.editorconfig'
+      '.editorconfig',
+      '.bowerrc',
+      'bower.json'
     ];
 
     helpers.mockPrompt(this.app, {
-      'someOption': 'Y'
+      features: ['jshint','bower']
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
