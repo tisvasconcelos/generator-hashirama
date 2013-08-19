@@ -25,11 +25,13 @@ describe('hashirama generator', function () {
       '.jshintrc',
       '.editorconfig',
       '.bowerrc',
-      'bower.json'
+      'bower.json',
+      '.gitignore',
+      '.svnignore'
     ];
 
     helpers.mockPrompt(this.app, {
-      features: ['jshint','bower']
+      features: ['jshint','bower','svn','git']
     });
     this.app.options['skip-install'] = true;
     this.app.run({}, function () {
