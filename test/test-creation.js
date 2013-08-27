@@ -33,7 +33,9 @@ describe('hashirama generator', function () {
     helpers.mockPrompt(this.app, {
       features: ['jshint','bower','svn','git']
     });
+    
     this.app.options['skip-install'] = true;
+
     this.app.run({}, function () {
       helpers.assertFiles(expected);
       done();
