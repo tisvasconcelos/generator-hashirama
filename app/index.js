@@ -87,8 +87,8 @@ HashiramaGenerator.prototype.configs = function configs() {
   this.template('Gruntfile.js');
 
   this.copy('_package.json', 'package.json');
+  this.copy('bowerrc', '.bowerrc');
   if (this.bower) {
-    this.copy('bowerrc', '.bowerrc');
     this.copy('_bower.json', 'bower.json');
   }
 };
